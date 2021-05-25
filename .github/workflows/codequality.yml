@@ -1,7 +1,6 @@
 name: quality
 on: ["push", "pull_request"]
 
-name: Test Coveralls
 
 jobs:
 
