@@ -2,10 +2,10 @@ name: code coverage
 on: ["push", "pull_request"]
 jobs: 
     coverage:
-    runs-on: ubuntu-latest
-      steps:
-      - name: setup environment
-        run: npm install -g istanbul
-      - name: output test result
-        working-directory: ./__tests__
-        run: istanbul cover sum.test.js
+        runs-on: ubuntu-latest
+        steps:
+        - name: setup environment
+          run: npm install -g istanbul
+        - name: output test result
+          working-directory: ./__tests__
+          run: istanbul cover sum.test.js
