@@ -17,6 +17,8 @@ jobs:
       - name: npm install, and test
         run: |
           npm install
+          npm test  ./__tests__/lab8.test.js
+          
         env:
           CI: true
 
