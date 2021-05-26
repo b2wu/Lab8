@@ -17,11 +17,7 @@ jobs:
       - name: npm install, and test
         run: |
           npm install
-          npm test-coverage
+          npm test ./__tests__/sum.test.js
         env:
           CI: true
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
