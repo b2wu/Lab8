@@ -9,20 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install, and test
+        run: |
+          npm install
+          make test-coverage
+        env:
+          CI: true
 
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-
-    - name: npm install, make test-coverage
-      run: |
-        npm install
-        make test-coverage
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: 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
-            git push origin HEAD
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
