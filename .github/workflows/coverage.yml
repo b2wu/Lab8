@@ -21,6 +21,7 @@ jobs:
       - name: npm install, and test
         run: |
           npm init -y
+          npm install --save-dev puppeteer jest-puppeteer
           npm install --save-dev jest babel-jest @babel/core @babel/preset-env
           npm test ./__tests__/sum.test.js
           ls
